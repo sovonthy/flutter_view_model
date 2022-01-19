@@ -14,9 +14,6 @@ class _CardViewState extends State<CardView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Card"),
-      ),
       body: Consumer<TodoViewModel>(
         builder: (context, viewModel, child) {
           return ListView.builder(
