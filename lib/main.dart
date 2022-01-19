@@ -1,10 +1,11 @@
-import 'package:demo_app/register_page.dart';
+import 'package:demo_app/views/card_view.dart';
+import 'package:demo_app/views/register_page.dart';
 import 'package:demo_app/viewmodel/todo_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'choose_language_page.dart';
-import 'login_page.dart';
-import 'home_page.dart';
+import 'views/choose_language_page.dart';
+import 'views/login_page.dart';
+import 'views/home_page.dart';
 
 void main() {
   runApp(

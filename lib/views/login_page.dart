@@ -1,14 +1,15 @@
-import 'package:demo_app/login_page.dart';
+import 'package:demo_app/views/home_page.dart';
+import 'package:demo_app/views/register_page.dart';
 import 'package:flutter/material.dart';
-import 'home_page.dart';
 
-class RegisterPage extends StatefulWidget {
-  static String tag = 'register-page';
+class LoginPage extends StatefulWidget {
+  static String tag = 'login-page';
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<RegisterPage> {
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     final logo = Hero(
@@ -20,19 +21,10 @@ class _LoginPageState extends State<RegisterPage> {
       ),
     );
 
-    final name = TextFormField(
-      keyboardType: TextInputType.name,
-      autofocus: false,
-      decoration: InputDecoration(
-        hintText: 'Name',
-        contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
-      ),
-    );
-
     final email = TextFormField(
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
+      initialValue: 'sovonthy@gmail.com',
       decoration: InputDecoration(
         hintText: 'Email',
         contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
@@ -42,6 +34,7 @@ class _LoginPageState extends State<RegisterPage> {
 
     final password = TextFormField(
       autofocus: false,
+      initialValue: 'some password',
       obscureText: true,
       decoration: InputDecoration(
         hintText: 'Password',
@@ -61,17 +54,25 @@ class _LoginPageState extends State<RegisterPage> {
         },
         padding: const EdgeInsets.all(12),
         color: Colors.lightBlueAccent,
-        child: const Text('Register', style: TextStyle(color: Colors.white)),
+        child: const Text('Log In', style: TextStyle(color: Colors.white)),
       ),
     );
 
-    final loginLabel = FlatButton(
+    final forgotLabel = FlatButton(
       child: const Text(
-        'Back to login?',
+        'Forgot password?',
+        style: TextStyle(color: Colors.black54),
+      ),
+      onPressed: () {},
+    );
+
+    final registerLabel = FlatButton(
+      child: const Text(
+        'Register an account?',
         style: TextStyle(color: Colors.black54),
       ),
       onPressed: () {
-        Navigator.of(context).pushNamed(LoginPage.tag);
+        Navigator.of(context).pushNamed(RegisterPage.tag);
       },
     );
 
@@ -84,14 +85,13 @@ class _LoginPageState extends State<RegisterPage> {
           children: <Widget>[
             logo,
             const SizedBox(height: 48.0),
-            name,
-            const SizedBox(height: 8.0,),
             email,
             const SizedBox(height: 8.0),
             password,
             const SizedBox(height: 24.0),
             loginButton,
-            loginLabel
+            forgotLabel,
+            registerLabel
           ],
         ),
       ),
