@@ -21,7 +21,6 @@ class _HomeViewState extends State<HomeView> {
   void changePage(int? index) {
     setState(() {
       currentIndex = index!;
-      print(currentIndex);
     });
   }
 
@@ -40,7 +39,7 @@ class _HomeViewState extends State<HomeView> {
           children: [
             NavHeader(),
             const Divider(),
-            NavItem(
+            const NavItem(
               title: "Card",
               icon: Icons.list_alt_outlined,
               widget: CardView(),
@@ -64,15 +63,9 @@ class _HomeViewState extends State<HomeView> {
         ),
       ),
       body: IndexedStack(
-        children: [TodoView(), CardView(), LoginPage(), RegisterPage()],
+        children: [const TodoView(), const CardView(), LoginPage(), RegisterPage()],
         index: currentIndex,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){},
-        child: Icon(Icons.add),
-        backgroundColor: Colors.blue,
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BubbleBottomBar(
         opacity: .2,
         currentIndex: currentIndex,

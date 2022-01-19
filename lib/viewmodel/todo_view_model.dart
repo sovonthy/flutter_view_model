@@ -28,6 +28,7 @@ class TodoViewModel extends ChangeNotifier {
 
   void addItemToCard(Todo todo) {
     selectedTodos.add(todo);
+    notifyListeners();
   }
 
   void removeItemFromCard(Todo todo) {
