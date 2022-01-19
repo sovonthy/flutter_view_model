@@ -24,12 +24,10 @@ class TodoViewModel extends ChangeNotifier {
     var response = await TodoService.getTodos();
     todos.addAll(response);
     selectedTodos.addAll(todos.where((element) => element.completed == true));
-    print(selectedTodos.length);
   }
 
   void addItemToCard(Todo todo) {
     selectedTodos.add(todo);
-    print(selectedTodos.length);
   }
 
   void removeItemFromCard(Todo todo) {

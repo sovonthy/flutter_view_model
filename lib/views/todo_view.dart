@@ -1,6 +1,11 @@
 import 'package:demo_app/viewmodel/todo_view_model.dart';
+import 'package:demo_app/views/card_view.dart';
+import 'package:demo_app/widgets/navigation_header.dart';
+import 'package:demo_app/widgets/navigation_item.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'login_page.dart';
 
 class TodoView extends StatefulWidget {
   const TodoView({Key? key}) : super(key: key);
@@ -10,7 +15,6 @@ class TodoView extends StatefulWidget {
 }
 
 class _TodoViewState extends State<TodoView> {
-
   @override
   void initState() {
     WidgetsBinding.instance!.addPostFrameCallback((_) async {
@@ -19,12 +23,14 @@ class _TodoViewState extends State<TodoView> {
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:
-      Consumer<TodoViewModel>(builder: (_, viewModel, __,) {
+      body: Consumer<TodoViewModel>(builder: (
+        _,
+        viewModel,
+        __,
+      ) {
         return ListView.builder(
           itemCount: viewModel.todos.length,
           itemBuilder: (BuildContext context, int index) {
